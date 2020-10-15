@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, VERSION, ViewEncapsulation} from '@angular/core';
+
+import {NavItem} from './navigation/nav-item';
+import {navItems} from './navigation/nav-data';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'SupportToolV2';
+    version = VERSION;
+    navItems = navItems;
+    env;
 }
