@@ -1,0 +1,33 @@
+<mat-card class="template-card">
+    <mat-card-header>
+        <mat-card-title>Generate JMS Message</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-jms-message-template (messageGenerated)="populateJmsTemplate($event)"></app-jms-message-template>
+        <div class="row three-quarter-width">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <textarea matInput placeholder="Xml Message" [(ngModel)]="jmsMessage"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="form-element">
+                    <mat-label>Select Queue</mat-label>
+                    <mat-select [(ngModel)]="selectedQueue">
+                        <mat-option *ngFor="let queue of queues" [value]="queue">
+                            {{queue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="button" (click)="sendPayload()" [disabled]="!jmsMessage || !selectedQueue">Send Payload
+                    </button>
+                </mat-card-actions>
+            </div>
+
+        </div>
+
+    </mat-card-content>
+</mat-card>
