@@ -3,12 +3,10 @@
     <mat-toolbar-row>
       <span>Support Tool</span>
       <span class="example-spacer"></span>
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>Env</mat-label>
-        <mat-select [(value)]="env">
-          <mat-option value="sit">SIT</mat-option>
-          <mat-option value="uat">UAT</mat-option>
-          <mat-option value="prod">PROD</mat-option>
+        <mat-select [(value)]="env" (valueChange)="setEnv($event)">
+          <mat-option *ngFor="let envOption of envs" [value]="envOption">{{envOption}}</mat-option>
         </mat-select>
       </mat-form-field>
     </mat-toolbar-row>
