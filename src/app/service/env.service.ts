@@ -18,4 +18,8 @@ export class EnvService {
     getEnv(): Env {
         return this.selectedEnv;
     }
+
+    getEnvStr(): string{
+        return this.selectedEnv.toString();
+    }
 }

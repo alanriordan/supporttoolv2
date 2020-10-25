@@ -45,6 +45,22 @@ export const navItems: NavItem[] = [
         ]
     },
     {
+        displayName: 'CV',
+        iconName: 'close',
+        children: [
+            {
+                displayName: 'CV messages',
+                iconName: 'message',
+                route: 'cv-message'
+            },
+            {
+                displayName: 'Client Insight messages',
+                iconName: 'message',
+                route: 'ldap-info'
+            }
+        ]
+    },
+    {
         displayName: 'Email',
         iconName: 'close',
         children: [

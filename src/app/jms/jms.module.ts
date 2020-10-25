@@ -3,14 +3,11 @@ import {JmsService} from './service/jms.service';
 import {JmsListenerComponent} from './jms-listener/jms-listener.component';
 import {JmsSenderComponent} from './jms-sender/jms-sender.component';
 import {JmsMessageTemplateComponent} from './jms-message-template/jms-message-template.component';
-import {AppModule} from '../app.module';
-import { JmsBrowserComponent } from './jms-browser/jms-browser.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {JmsBrowserComponent} from './jms-browser/jms-browser.component';
 import {JmsRoutingModule} from './jms-routing.module';
-import {VendorModule} from "../vendor.module";
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
+import {VendorModule} from '../vendor.module';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({

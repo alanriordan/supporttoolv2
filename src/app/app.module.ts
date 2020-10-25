@@ -13,9 +13,10 @@ import {EmailSenderComponent} from './email-sender/email-sender.component';
 import {HttpClientModule} from '@angular/common/http';
 import {EnvService} from './service/env.service';
 import {VendorModule} from './vendor.module';
-import {LdapModule} from "./ldap/ldap.module";
-import {JmsModule} from "./jms/jms.module";
-import {MatCard} from "@angular/material/card";
+import {LdapModule} from './ldap/ldap.module';
+import {JmsModule} from './jms/jms.module';
+import {MatCard} from '@angular/material/card';
+import {CvModule} from './citiVelocity/cv.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatCard} from "@angular/material/card";
         FlexLayoutModule,
         AppRoutingModule,
         LdapModule,
-        JmsModule
+        JmsModule,
+        CvModule
     ],
     declarations: [
         AppComponent,

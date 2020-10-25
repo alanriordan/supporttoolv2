@@ -22,8 +22,20 @@ body {
   width: 50%;
 }
 
+table {
+  width: 100%;
+}
+
 .three-quarter-width {
   width: 75%;
+}
+
+.top-padding{
+  padding-top: 20px;
+}
+
+.mat-divider {
+  padding: 10px!important;
 }
 
 textarea{
