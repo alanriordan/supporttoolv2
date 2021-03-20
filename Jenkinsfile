@@ -1,9 +1,21 @@
 pipeline {
     agent any
+
     stages {
-        stage('Stage 1') {
+         stage('Build') {
+              steps {
+                  sh 'make'
+                  archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+              }
+          }
+        stage('Test') {
             steps {
-                echo 'Hello world again'
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
