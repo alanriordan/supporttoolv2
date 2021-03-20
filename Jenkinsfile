@@ -4,7 +4,6 @@ pipeline {
     stages {
          stage('Build') {
               steps {
-                  mvn clean install
                   archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
               }
           }
