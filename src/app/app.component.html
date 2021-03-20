@@ -1,1 +1,35 @@
-<app-navbar></app-navbar>
+<div class="basic-container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Support Tool</span>
+      <span class="example-spacer"></span>
+      <mat-form-field>
+        <mat-label>Env</mat-label>
+        <mat-select [(value)]="env" (valueChange)="setEnv($event)">
+          <mat-option *ngFor="let envOption of envs" [value]="envOption">{{envOption}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span *ngFor="let item of navItems">
+      <!-- Handle branch node buttons here -->
+      <span *ngIf="item.children && item.children.length > 0">
+        <button mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf="menu.childMenu"
+        [disabled]="item.disabled">
+          {{item.displayName}}
+        </button>
+        <app-menu-item #menu [items]="item.children"></app-menu-item>
+      </span>
+      <!-- Leaf node buttons here -->
+      <span *ngIf="!item.children || item.children.length === 0">
+        <button mat-button color="primary" [routerLink]="item.route">
+          {{item.displayName}}
+        </button>
+      </span>
+    </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>
+
+<span class="version-info">Current build: {{version.full ? version.full : version}}</span>

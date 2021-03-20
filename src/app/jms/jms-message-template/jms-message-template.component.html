@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col">
+        <mat-form-field class="form-element full-width">
+            <mat-label>Message Template</mat-label>
+            <mat-select [(ngModel)]="selectedMessageType">
+                <mat-option *ngFor="let messageType of messageTypes" [value]="messageType">
+                    {{messageType}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col">
+        <mat-form-field class="form-element full-width">
+            <mat-label>Authorization Type</mat-label>
+            <mat-select [(ngModel)]="selectedAuthorizationType">
+                <mat-option *ngFor="let authorizationType of authorizationTypes" [value]="authorizationType">
+                    {{authorizationType}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col half-width">
+        <mat-form-field class="half-width">
+            <input matInput placeholder="MessagKey(s). Can be comma seperated" [(ngModel)]="messageKeys">
+        </mat-form-field>
+    </div>
+    <div class="col">
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="button" (click)="generatePayload()">Generate
+            </button>
+        </mat-card-actions>
+    </div>
+</div>
+
+
+
+
+

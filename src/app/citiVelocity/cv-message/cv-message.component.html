@@ -1,0 +1,123 @@
+<mat-card class="template-card">
+    <mat-card-header>
+        <mat-card-title>Browse CV Messages</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="full-width">
+        <div class="row half-width">
+            <div class="col">
+                <mat-form-field>
+                    <input matInput placeholder="Filter" [(ngModel)]="filterText"/>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="button" (click)="findCvMessage(filterText)"
+                            [disabled]="!filterText">Search Messages
+                    </button>
+                </mat-card-actions>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults || isRateLimitReached">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            GitHub's API rate limit has been reached. It will be reset in one minute.
+        </div>
+    </div>
+
+    <div class="example-table-container">
+
+        <table mat-table [dataSource]="data" class="example-table"
+               matSort matSortActive="sent" matSortDisableClear matSortDirection="desc">
+            <!-- Number Column -->
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let row">{{row.number}}</td>
+            </ng-container>
+
+            <!-- Title Column -->
+            <ng-container matColumnDef="Message">
+                <th mat-header-cell *matHeaderCellDef>Sent Message</th>
+                <td mat-cell *matCellDef="let row">{{row.sentMessage}}</td>
+            </ng-container>
+
+            <!-- State Column -->
+            <ng-container matColumnDef="Response">
+                <th mat-header-cell *matHeaderCellDef>Response Message</th>
+                <td mat-cell *matCellDef="let row">{{row.responseMessage}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> Resend </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-card-actions>
+                        <button mat-stroked-button color="primary" type="button" (click)="resendCvMessage(data[data.indexOf(element)].sentMessage)">Resend
+                        </button>
+                    </mat-card-actions>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="sent">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                    Date Sent
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.dateSent | date}}</td>
+            </ng-container>
+
+           <!-- &lt;!&ndash; Created Column &ndash;&gt;
+            <ng-container matColumnDef="created">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                    Created
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.created_at | date}}</td>
+            </ng-container>-->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
+</div>
+
+<!--<mat-card class="template-card" *ngIf="cvMessages">
+    <mat-card-header>
+        <mat-card-title>CV Messages</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="full-width">
+        <table mat-table [dataSource]="cvMessages" class="mat-elevation-z8">
+
+            &lt;!&ndash; Message Column &ndash;&gt;
+            <ng-container matColumnDef="Message">
+                <th mat-header-cell *matHeaderCellDef> Message </th>
+                <td mat-cell *matCellDef="let element"> {{element.sentMessage}} </td>
+            </ng-container>
+
+            &lt;!&ndash; Response Column &ndash;&gt;
+            <ng-container matColumnDef="Response">
+                <th mat-header-cell *matHeaderCellDef> Response </th>
+                <td mat-cell *matCellDef="let element"> {{element.responseMessage}} </td>
+            </ng-container>
+
+            &lt;!&ndash; Response Column &ndash;&gt;
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> Resend </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" type="button" (click)="resendCvMessage(cvMessages[cvMessages.indexOf(element)].sentMessage)">Resend Messages
+                        </button>
+                    </mat-card-actions>
+                </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>-->
