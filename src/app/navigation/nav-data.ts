@@ -2,9 +2,14 @@ import {NavItem} from './nav-item';
 
 export const navItems: NavItem[] = [
     {
-        displayName: 'Jms Messaging',
+        displayName: 'Jms',
         iconName: 'close',
         children: [
+            {
+                displayName: 'Listeners',
+                iconName: 'network_check',
+                route: 'jms-listener'
+            },
             {
                 displayName: 'Send Message',
                 iconName: 'send',
@@ -41,6 +46,17 @@ export const navItems: NavItem[] = [
                 displayName: 'Ldap Details',
                 iconName: 'security',
                 route: 'ldap-info'
+            }
+        ]
+    },
+    {
+        displayName: 'Vasco',
+        iconName: 'close',
+        children: [
+            {
+                displayName: 'Vasco Details',
+                iconName: 'security',
+                route: 'vasco-info'
             }
         ]
     },

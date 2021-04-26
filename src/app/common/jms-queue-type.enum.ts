@@ -1,0 +1,3 @@
+export enum JmsQueueType {
+    BROKER = 'CDS.ENT.BROKER', BROKER1 = 'CDS.ENT.BROKER.1', BROKER_EXP = 'CDS.ENT.BROKER.EXP'
+}

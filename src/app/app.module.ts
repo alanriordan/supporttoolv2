@@ -15,6 +15,7 @@ import {EnvService} from './service/env.service';
 import {VendorModule} from './vendor.module';
 import {LdapModule} from './ldap/ldap.module';
 import {JmsModule} from './jms/jms.module';
+import {VascoModule} from './vasco/vasco.module';
 import {MatCard} from '@angular/material/card';
 import {CvModule} from './citiVelocity/cv.module';
 
@@ -31,6 +32,7 @@ import {CvModule} from './citiVelocity/cv.module';
         FlexLayoutModule,
         AppRoutingModule,
         LdapModule,
+        VascoModule,
         JmsModule,
         CvModule
     ],
