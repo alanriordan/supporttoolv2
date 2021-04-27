@@ -4,6 +4,7 @@ import {VascoRoutingModule} from './vasco-routing.module';
 import {VendorModule} from '../vendor.module';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {VascoService} from './service/vasco.service';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {CommonModule} from '@angular/common';
         VendorModule,
         FormsModule,
         CommonModule],
-    exports: [VascoInfoComponent]
+    exports: [VascoInfoComponent],
+    providers: [VascoService]
 })
 export class VascoModule {
 }

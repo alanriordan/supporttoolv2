@@ -4,6 +4,7 @@ import {LdapRoutingModule} from './ldap-routing.module';
 import {VendorModule} from '../vendor.module';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {LdapService} from './service/ldap.service';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {CommonModule} from '@angular/common';
         VendorModule,
         FormsModule,
         CommonModule],
-    exports: [LdapInfoComponent]
+    exports: [LdapInfoComponent],
+  providers: [LdapService]
 })
 export class LdapModule {
 }
